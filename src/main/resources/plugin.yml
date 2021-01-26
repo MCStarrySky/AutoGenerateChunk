@@ -1,0 +1,6 @@
+name: AutoGenerateChunk
+version: ${project.version}
+main: me.mical.autogeneratechunk.AutoGenerateChunk
+api-version: 1.16
+authors: [ Mical ]
+description: Auto generate chunks for the special time (RWG)
