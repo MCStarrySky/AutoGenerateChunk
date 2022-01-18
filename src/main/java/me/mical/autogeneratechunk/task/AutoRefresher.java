@@ -1,7 +1,7 @@
 package me.mical.autogeneratechunk.task;
 
 import me.mical.autogeneratechunk.AutoGenerateChunk;
-import me.mical.autogeneratechunk.utils.WorldBorderUtil;
+import me.mical.autogeneratechunk.utils.ChunkyUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -26,15 +26,15 @@ public class AutoRefresher {
             public void run() {
                 int size = Bukkit.getOnlinePlayers().size();
                 if (size == 0) {
-                    if (!WorldBorderUtil.getState()) {
-                        Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(AutoGenerateChunk.class), WorldBorderUtil::start);
-                        WorldBorderUtil.setState(true);
+                    if (!ChunkyUtil.getState()) {
+                        Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(AutoGenerateChunk.class), ChunkyUtil::start);
+                        ChunkyUtil.setState(true);
                         JavaPlugin.getPlugin(AutoGenerateChunk.class).getLogger().info("Task Enabled.");
                     }
                 } else {
-                    if (WorldBorderUtil.getState()) {
-                        Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(AutoGenerateChunk.class), WorldBorderUtil::stop);
-                        WorldBorderUtil.setState(false);
+                    if (ChunkyUtil.getState()) {
+                        Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(AutoGenerateChunk.class), ChunkyUtil::stop);
+                        ChunkyUtil.setState(false);
                         JavaPlugin.getPlugin(AutoGenerateChunk.class).getLogger().info("Task Disabled.");
                     }
                 }
