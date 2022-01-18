@@ -10,7 +10,7 @@ public class ChunkyUtil {
         try {
             //Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wborder world fill 3 208 false");
             //Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wborder fill confirm");
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "chunky start");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "chunky continue");
             generating = true;
             return true;
         } catch (Throwable e) {
