@@ -1,33 +1,34 @@
 package me.mical.autogeneratechunk.utils;
 
+import me.mical.autogeneratechunk.AutoGenerateChunk;
 import org.bukkit.Bukkit;
 
 public class ChunkyUtil {
 
-    public static boolean generating = false;
+    private static boolean generating = false;
 
-    public static boolean start() {
+    public static void start() {
         try {
-            //Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wborder world fill 3 208 false");
-            //Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wborder fill confirm");
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "chunky continue");
+            if (AutoGenerateChunk.NEW_TASK) {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "chunky world example");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "chunky center 0 0");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "chunky start");
+                AutoGenerateChunk.setNewTask(false);
+            } else {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "chunky continue");
+            }
             generating = true;
-            return true;
         } catch (Throwable e) {
             generating = false;
-            return false;
         }
     }
 
-    public static boolean stop() {
+    public static void stop() {
         try {
-            //Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wborder fill cancel");
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "chunky pause");
             generating = false;
-            return true;
         } catch (Throwable e) {
             generating = true;
-            return false;
         }
     }
 

@@ -39,6 +39,6 @@ public class AutoRefresher {
                     }
                 }
             }
-        }.runTaskTimerAsynchronously(JavaPlugin.getPlugin(AutoGenerateChunk.class), 20L, 20L);
+        }.runTaskTimerAsynchronously(JavaPlugin.getPlugin(AutoGenerateChunk.class), 0L, 20L);
     }
 }
